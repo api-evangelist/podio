@@ -1,0 +1,91 @@
+{
+    "name": "Podio",
+    "description": "Podio supplies a web-based platform for organizing team communication, business processes, data and content in project management workspaces.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/900-podio.jpg",
+    "tags": [
+        "crm",
+        "have api",
+        "office",
+        "projects",
+        "webhook implementations"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/podio\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Podio",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/900-podio.jpg",
+            "humanURL": "http:\/\/developers.podio.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/podio-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Base",
+            "url": "https:\/\/api.podio.com"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/blog.podio.com"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/blog.podio.com\/feed\/"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/podio"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/podio"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/developers.podio.com\/doc"
+        },
+        {
+            "type": "Email",
+            "url": "support@podio.com"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/podio"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/podio.com\/site\/pricing"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/podio"
+        },
+        {
+            "type": "Webhooks",
+            "url": "https:\/\/developers.podio.com\/examples\/webhooks"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/developers.podio.com"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/podio.com"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/developers.podio.com"
+        }
+    ]
+}
