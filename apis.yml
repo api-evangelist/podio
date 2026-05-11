@@ -1,0 +1,71 @@
+aid: podio
+name: Podio
+description: >-
+  Podio is a flexible work management and collaboration platform (originally
+  acquired by Citrix in 2012, and now part of Progress Software following the
+  October 2024 acquisition of ShareFile and Podio) that lets teams build
+  custom apps, workspaces, and workflows for project management, CRM, and
+  internal operations. The Podio API offers a complete programmable interface
+  to all Podio functionality including apps, items, tasks, workspaces, users,
+  files, and webhooks, with official client libraries available for PHP, .NET,
+  Ruby, Java, Python, Android, and Objective-C.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Work Management
+  - Collaboration
+  - Project Management
+  - CRM
+  - Workflow
+  - Custom Apps
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/podio/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: podio:rest-api
+    name: Podio REST API
+    description: >-
+      REST API providing complete programmatic access to Podio apps, items,
+      workspaces, organizations, users, tasks, files, comments, and webhooks.
+      Authentication uses OAuth2 with several supported flows (server-side,
+      client-side, password, and app authentication). Rate limits are
+      adjustable upon request.
+    humanURL: https://developers.podio.com/doc
+    baseURL: https://api.podio.com
+    tags:
+      - Work Management
+      - Collaboration
+      - CRM
+      - Custom Apps
+    properties:
+      - type: Documentation
+        url: https://developers.podio.com/doc
+      - type: Authentication
+        url: https://developers.podio.com/authentication
+      - type: API Index
+        url: https://developers.podio.com/index
+      - type: Client Libraries
+        url: https://developers.podio.com/clients
+
+common:
+  - type: Website
+    url: https://www.podio.com
+  - type: Documentation
+    url: https://developers.podio.com
+  - type: Help Center
+    url: https://help.podio.com
+  - type: Pricing
+    url: https://www.podio.com/site/en/premium
+  - type: Sign Up
+    url: https://podio.com/signup
+  - type: Status
+    url: https://status.podio.com
+  - type: GitHub Organization
+    url: https://github.com/podio
+  - type: Progress Podio Docs
+    url: https://docs.sharefile.com/en-us/podio.html
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
