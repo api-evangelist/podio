@@ -50,6 +50,8 @@ apis:
         url: https://developers.podio.com/clients
 
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/showcase/citrix-work-collaboration-solutions
   - type: Website
     url: https://www.podio.com
   - type: Documentation
