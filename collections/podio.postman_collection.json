@@ -1,0 +1,874 @@
+{
+  "item": [
+    {
+      "id": "683f69c1-675b-4eec-8464-25468896c5e0",
+      "name": "OAuth",
+      "description": {
+        "content": "OAuth 2.0 authorization endpoints.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7a72e2e9-2fd4-4d71-a786-738063cc7308",
+          "name": "Exchange credentials for an access token",
+          "request": {
+            "name": "Exchange credentials for an access token",
+            "description": {
+              "content": "Podio's OAuth 2.0 token endpoint. Supports `authorization_code`,\n`refresh_token`, `password`, and `app` grants.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth",
+                "token",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<uri>"
+                },
+                {
+                  "disabled": false,
+                  "key": "refresh_token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "app_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "app_token",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cb85739e-3051-4813-bbf7-d2ed8bb0e59f",
+              "name": "Token issued",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "app_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "app_token",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"string\",\n  \"expires_in\": 4559,\n  \"refresh_token\": \"string\",\n  \"scope\": \"string\",\n  \"ref\": {\n    \"key_0\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0d186e3d-8173-4e19-ba3c-42a90c6c2040",
+      "name": "Applications",
+      "description": {
+        "content": "Podio application definitions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4df518ae-633c-41e1-bf44-27fdf72b29b4",
+          "name": "Get app",
+          "request": {
+            "name": "Get app",
+            "description": {
+              "content": "Retrieve the definition (configuration and fields) of a Podio application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                ":app_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "app_id",
+                  "description": "(Required) Podio application id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e5277da3-db04-40ec-85fb-5eba86b7682b",
+              "name": "Application definition",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    ":app_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "app_id",
+                      "description": "(Required) Podio application id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"app_id\": 7314,\n  \"url_label\": \"string\",\n  \"config\": {\n    \"key_0\": \"string\"\n  },\n  \"fields\": [\n    {\n      \"key_0\": 1656\n    },\n    {\n      \"key_0\": true,\n      \"key_1\": 2293.6974864799618\n    }\n  ],\n  \"status\": \"string\",\n  \"current_revision\": 8146,\n  \"space_id\": 3521\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a0b76df9-67c5-491c-a8ab-e1c17566f14c",
+      "name": "Items",
+      "description": {
+        "content": "Items (records) inside Podio applications.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eb3c6e45-434a-43e9-a79e-fc9d618ddedc",
+          "name": "Add a new item",
+          "request": {
+            "name": "Add a new item",
+            "description": {
+              "content": "Create a new item in the given app.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "item",
+                "app",
+                ":app_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hook",
+                  "value": "true",
+                  "description": "Whether to execute hooks on change."
+                },
+                {
+                  "disabled": false,
+                  "key": "silent",
+                  "value": "false",
+                  "description": "Whether to suppress stream bumping and notifications."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "app_id",
+                  "description": "(Required) Podio application id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"external_id\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"string\",\n    \"key_1\": 741,\n    \"key_2\": false\n  },\n  \"file_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"reminder\": {\n    \"remind_delta\": \"<integer>\"\n  },\n  \"recurrence\": {\n    \"key_0\": 6278,\n    \"key_1\": true,\n    \"key_2\": 256.45491176133015\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3d1bf491-20aa-467c-92cf-cff8261b01b7",
+              "name": "Created item id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "item",
+                    "app",
+                    ":app_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hook",
+                      "value": "true"
+                    },
+                    {
+                      "key": "silent",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "app_id",
+                      "description": "(Required) Podio application id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"external_id\": \"<string>\",\n  \"fields\": {\n    \"key_0\": true,\n    \"key_1\": false\n  },\n  \"file_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"reminder\": {\n    \"remind_delta\": \"<integer>\"\n  },\n  \"recurrence\": {\n    \"key_0\": 502\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"item_id\": 7378,\n  \"title\": \"string\",\n  \"revision\": 4357,\n  \"link\": \"http://dizxLCtCZ.qvni35,yJ7A2nDG,xYdiD1tigsxWApRmUYcb4-.p6H4Nph1tRZ\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78906a1d-1a2c-49cb-83f4-2cb2606d9f1a",
+          "name": "Get an item",
+          "request": {
+            "name": "Get an item",
+            "description": {
+              "content": "Returns the item with the specified id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "item",
+                ":item_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "item_id",
+                  "description": "(Required) Podio item id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b802fdcd-9c69-4809-a8df-61543fd8e38f",
+              "name": "Item",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "item",
+                    ":item_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "item_id",
+                      "description": "(Required) Podio item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"item_id\": 8220,\n  \"external_id\": \"string\",\n  \"app\": {\n    \"key_0\": \"string\"\n  },\n  \"fields\": [\n    {\n      \"key_0\": true,\n      \"key_1\": true,\n      \"key_2\": 4948.054134670065\n    },\n    {\n      \"key_0\": 5523,\n      \"key_1\": 5851.037240478061\n    }\n  ],\n  \"created_on\": \"1955-01-24T21:22:58.186Z\",\n  \"created_by\": {\n    \"key_0\": false\n  },\n  \"revision\": 3409,\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"link\": \"http://FwWmwoYOYYCLl.gkyhU,MSBE5C-CEXL5YwFGQHny0VUpQftj8XcwVM10B+mdxKRhF,yncmob4,yrP+XGdBfeyTLDPdE\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e44e4c08-8957-4173-a654-b9ebd733e383",
+      "name": "Tasks",
+      "description": {
+        "content": "Work tasks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a2ef4f7-c94a-4e76-817f-67787d6be130",
+          "name": "Create a task",
+          "request": {
+            "name": "Create a task",
+            "description": {
+              "content": "Creates a new task, optionally attached to a reference object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "task",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"<string>\",\n  \"description\": \"<string>\",\n  \"due_date\": \"<date>\",\n  \"due_time\": \"<string>\",\n  \"responsible\": \"<integer>\",\n  \"private\": \"<boolean>\",\n  \"ref_type\": \"<string>\",\n  \"ref_id\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7e59b3d-33c3-4ece-922b-1543d2ec8a88",
+              "name": "Created task",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "task",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"<string>\",\n  \"description\": \"<string>\",\n  \"due_date\": \"<date>\",\n  \"due_time\": \"<string>\",\n  \"responsible\": \"<integer>\",\n  \"private\": \"<boolean>\",\n  \"ref_type\": \"<string>\",\n  \"ref_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"task_id\": 1242,\n  \"text\": \"string\",\n  \"description\": \"string\",\n  \"status\": \"active\",\n  \"due_date\": \"1970-08-27\",\n  \"created_on\": \"1992-01-25T14:01:49.644Z\",\n  \"link\": \"https://kzwCwEVrHKTsvwSpxdrKMcEWPSDY.wbnThxbdtkbc.dAi1YC\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c5561c5e-df07-4f00-a109-f84e8110e1ff",
+      "name": "Hooks",
+      "description": {
+        "content": "Webhooks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a10dffb5-5020-4969-a5b4-3ebe49ad4c5c",
+          "name": "Create a webhook",
+          "request": {
+            "name": "Create a webhook",
+            "description": {
+              "content": "Create a new hook (webhook subscription) on the given reference object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hook",
+                ":ref_type",
+                ":ref_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ref_type",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "ref_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<uri>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a9297b6-6dc9-4213-a03f-d6fc67fd468c",
+              "name": "Created hook id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hook",
+                    ":ref_type",
+                    ":ref_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ref_type",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ref_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hook_id\": 6018\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podio.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.podio.com/oauth/token/v2"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://podio.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7cecfd6d-669a-4c97-ab5c-f024bc59a933",
+    "name": "Podio API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Podio is a work management and collaboration platform. The Podio API\nprovides programmatic access to apps, items, tasks, webhooks, and\nrelated resources. Authentication is OAuth 2.0; pass the access\ntoken in the `Authorization: OAuth2 <access_token>` header on API\nrequests. This specification captures a representative subset of\nendpoints from https://developers.podio.com/doc.\n\n\nContact Support:\n Name: Podio Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

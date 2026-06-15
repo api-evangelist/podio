@@ -1,0 +1,233 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Podio API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://podio.com/oauth/authorize",
+      "accessTokenUrl": "https://api.podio.com/oauth/token/v2",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OAuth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Exchange credentials for an access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.podio.com/oauth/token/v2",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                },
+                {
+                  "name": "code",
+                  "value": ""
+                },
+                {
+                  "name": "redirect_uri",
+                  "value": ""
+                },
+                {
+                  "name": "refresh_token",
+                  "value": ""
+                },
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                },
+                {
+                  "name": "app_id",
+                  "value": ""
+                },
+                {
+                  "name": "app_token",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Podio's OAuth 2.0 token endpoint. Supports `authorization_code`,\n`refresh_token`, `password`, and `app` grants.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get app",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podio.com/app/:app_id",
+            "params": [
+              {
+                "name": "app_id",
+                "value": "",
+                "type": "path",
+                "description": "Podio application id."
+              }
+            ]
+          },
+          "docs": "Retrieve the definition (configuration and fields) of a Podio application."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a new item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.podio.com/item/app/:app_id/",
+            "params": [
+              {
+                "name": "app_id",
+                "value": "",
+                "type": "path",
+                "description": "Podio application id."
+              },
+              {
+                "name": "hook",
+                "value": "",
+                "type": "query",
+                "description": "Whether to execute hooks on change."
+              },
+              {
+                "name": "silent",
+                "value": "",
+                "type": "query",
+                "description": "Whether to suppress stream bumping and notifications."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new item in the given app."
+        },
+        {
+          "info": {
+            "name": "Get an item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podio.com/item/:item_id",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Podio item id."
+              }
+            ]
+          },
+          "docs": "Returns the item with the specified id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.podio.com/task/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new task, optionally attached to a reference object."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Hooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.podio.com/hook/:ref_type/:ref_id/",
+            "params": [
+              {
+                "name": "ref_type",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ref_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new hook (webhook subscription) on the given reference object."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
