@@ -60,7 +60,7 @@ common:
     url: https://help.podio.com
   - type: Pricing
     url: https://www.podio.com/site/en/premium
-  - type: SignUp
+  - type: Signup
     url: https://podio.com/signup
   - type: StatusPage
     url: https://status.podio.com
