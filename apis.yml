@@ -50,6 +50,10 @@ apis:
         url: https://developers.podio.com/clients
 
 common:
+  - type: VulnerabilityDisclosure
+    url: security/podio-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/podio-domain-security.yml
   - type: Authentication
     url: authentication/podio-authentication.yml
   - type: OAuthScopes

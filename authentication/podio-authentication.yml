@@ -1,0 +1,25 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/podio-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: oauth2Authorization
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://podio.com/oauth/authorize
+    tokenUrl: https://api.podio.com/oauth/token/v2
+    scopes: 0
+  sources:
+  - openapi/podio-openapi.yml
+- name: oauth2Token
+  type: http
+  scheme: bearer
+  description: 'Podio also accepts bearer-style tokens via `Authorization: OAuth2 <access_token>`.'
+  sources:
+  - openapi/podio-openapi.yml
