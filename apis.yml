@@ -50,6 +50,10 @@ apis:
         url: https://developers.podio.com/clients
 
 common:
+  - type: Authentication
+    url: authentication/podio-authentication.yml
+  - type: OAuthScopes
+    url: scopes/podio-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/showcase/citrix-work-collaboration-solutions
   - type: Website
