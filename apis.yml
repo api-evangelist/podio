@@ -50,6 +50,8 @@ apis:
         url: https://developers.podio.com/clients
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/podio-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/podio-vulnerability-disclosure.yml
   - type: DomainSecurity
