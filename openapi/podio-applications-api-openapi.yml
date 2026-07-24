@@ -1,0 +1,94 @@
+openapi: 3.1.0
+info:
+  title: Podio Applications API
+  version: '1.0'
+  description: 'Podio is a work management and collaboration platform. The Podio API
+
+    provides programmatic access to apps, items, tasks, webhooks, and
+
+    related resources. Authentication is OAuth 2.0; pass the access
+
+    token in the `Authorization: OAuth2 <access_token>` header on API
+
+    requests. This specification captures a representative subset of
+
+    endpoints from https://developers.podio.com/doc.
+
+    '
+  contact:
+    name: Podio Developer Documentation
+    url: https://developers.podio.com/doc
+servers:
+- url: https://api.podio.com
+  description: Podio production API
+security:
+- oauth2Authorization: []
+- oauth2Token: []
+tags:
+- name: Applications
+  description: Podio application definitions.
+paths:
+  /app/{app_id}:
+    parameters:
+    - $ref: '#/components/parameters/AppId'
+    get:
+      tags:
+      - Applications
+      operationId: getApp
+      summary: Get app
+      description: Retrieve the definition (configuration and fields) of a Podio application.
+      responses:
+        '200':
+          description: Application definition
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+components:
+  parameters:
+    AppId:
+      in: path
+      name: app_id
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: Podio application id.
+  schemas:
+    Application:
+      type: object
+      properties:
+        app_id:
+          type: integer
+          format: int64
+        url_label:
+          type: string
+        config:
+          type: object
+          additionalProperties: true
+        fields:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        status:
+          type: string
+        current_revision:
+          type: integer
+        space_id:
+          type: integer
+          format: int64
+  securitySchemes:
+    oauth2Authorization:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://podio.com/oauth/authorize
+          tokenUrl: https://api.podio.com/oauth/token/v2
+          scopes: {}
+    oauth2Token:
+      type: http
+      scheme: bearer
+      description: 'Podio also accepts bearer-style tokens via `Authorization: OAuth2 <access_token>`.
+
+        '

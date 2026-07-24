@@ -1,0 +1,182 @@
+openapi: 3.1.0
+info:
+  title: Podio Applications Items API
+  version: '1.0'
+  description: 'Podio is a work management and collaboration platform. The Podio API
+
+    provides programmatic access to apps, items, tasks, webhooks, and
+
+    related resources. Authentication is OAuth 2.0; pass the access
+
+    token in the `Authorization: OAuth2 <access_token>` header on API
+
+    requests. This specification captures a representative subset of
+
+    endpoints from https://developers.podio.com/doc.
+
+    '
+  contact:
+    name: Podio Developer Documentation
+    url: https://developers.podio.com/doc
+servers:
+- url: https://api.podio.com
+  description: Podio production API
+security:
+- oauth2Authorization: []
+- oauth2Token: []
+tags:
+- name: Items
+  description: Items (records) inside Podio applications.
+paths:
+  /item/app/{app_id}/:
+    parameters:
+    - $ref: '#/components/parameters/AppId'
+    post:
+      tags:
+      - Items
+      operationId: addNewItem
+      summary: Add a new item
+      description: Create a new item in the given app.
+      parameters:
+      - in: query
+        name: hook
+        schema:
+          type: boolean
+          default: true
+        description: Whether to execute hooks on change.
+      - in: query
+        name: silent
+        schema:
+          type: boolean
+          default: false
+        description: Whether to suppress stream bumping and notifications.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCreate'
+      responses:
+        '200':
+          description: Created item id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemCreated'
+  /item/{item_id}:
+    parameters:
+    - $ref: '#/components/parameters/ItemId'
+    get:
+      tags:
+      - Items
+      operationId: getItem
+      summary: Get an item
+      description: Returns the item with the specified id.
+      responses:
+        '200':
+          description: Item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+components:
+  schemas:
+    ItemCreate:
+      type: object
+      properties:
+        external_id:
+          type: string
+        fields:
+          type: object
+          additionalProperties: true
+        file_ids:
+          type: array
+          items:
+            type: integer
+        tags:
+          type: array
+          items:
+            type: string
+        reminder:
+          type: object
+          properties:
+            remind_delta:
+              type: integer
+        recurrence:
+          type: object
+          additionalProperties: true
+    Item:
+      type: object
+      properties:
+        item_id:
+          type: integer
+          format: int64
+        external_id:
+          type: string
+        app:
+          type: object
+          additionalProperties: true
+        fields:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        created_on:
+          type: string
+          format: date-time
+        created_by:
+          type: object
+          additionalProperties: true
+        revision:
+          type: integer
+        tags:
+          type: array
+          items:
+            type: string
+        link:
+          type: string
+          format: uri
+    ItemCreated:
+      type: object
+      properties:
+        item_id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        revision:
+          type: integer
+        link:
+          type: string
+          format: uri
+  parameters:
+    AppId:
+      in: path
+      name: app_id
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: Podio application id.
+    ItemId:
+      in: path
+      name: item_id
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: Podio item id.
+  securitySchemes:
+    oauth2Authorization:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://podio.com/oauth/authorize
+          tokenUrl: https://api.podio.com/oauth/token/v2
+          scopes: {}
+    oauth2Token:
+      type: http
+      scheme: bearer
+      description: 'Podio also accepts bearer-style tokens via `Authorization: OAuth2 <access_token>`.
+
+        '

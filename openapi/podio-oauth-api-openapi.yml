@@ -1,0 +1,118 @@
+openapi: 3.1.0
+info:
+  title: Podio Applications OAuth API
+  version: '1.0'
+  description: 'Podio is a work management and collaboration platform. The Podio API
+
+    provides programmatic access to apps, items, tasks, webhooks, and
+
+    related resources. Authentication is OAuth 2.0; pass the access
+
+    token in the `Authorization: OAuth2 <access_token>` header on API
+
+    requests. This specification captures a representative subset of
+
+    endpoints from https://developers.podio.com/doc.
+
+    '
+  contact:
+    name: Podio Developer Documentation
+    url: https://developers.podio.com/doc
+servers:
+- url: https://api.podio.com
+  description: Podio production API
+security:
+- oauth2Authorization: []
+- oauth2Token: []
+tags:
+- name: OAuth
+  description: OAuth 2.0 authorization endpoints.
+paths:
+  /oauth/token/v2:
+    post:
+      tags:
+      - OAuth
+      operationId: getAccessToken
+      summary: Exchange credentials for an access token
+      description: 'Podio''s OAuth 2.0 token endpoint. Supports `authorization_code`,
+
+        `refresh_token`, `password`, and `app` grants.
+
+        '
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - authorization_code
+                  - refresh_token
+                  - password
+                  - app
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                code:
+                  type: string
+                redirect_uri:
+                  type: string
+                  format: uri
+                refresh_token:
+                  type: string
+                username:
+                  type: string
+                password:
+                  type: string
+                app_id:
+                  type: string
+                app_token:
+                  type: string
+      responses:
+        '200':
+          description: Token issued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+components:
+  schemas:
+    AccessToken:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+        expires_in:
+          type: integer
+        refresh_token:
+          type: string
+        scope:
+          type: string
+        ref:
+          type: object
+          additionalProperties: true
+  securitySchemes:
+    oauth2Authorization:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://podio.com/oauth/authorize
+          tokenUrl: https://api.podio.com/oauth/token/v2
+          scopes: {}
+    oauth2Token:
+      type: http
+      scheme: bearer
+      description: 'Podio also accepts bearer-style tokens via `Authorization: OAuth2 <access_token>`.
+
+        '

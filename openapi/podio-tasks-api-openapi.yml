@@ -1,0 +1,120 @@
+openapi: 3.1.0
+info:
+  title: Podio Applications Tasks API
+  version: '1.0'
+  description: 'Podio is a work management and collaboration platform. The Podio API
+
+    provides programmatic access to apps, items, tasks, webhooks, and
+
+    related resources. Authentication is OAuth 2.0; pass the access
+
+    token in the `Authorization: OAuth2 <access_token>` header on API
+
+    requests. This specification captures a representative subset of
+
+    endpoints from https://developers.podio.com/doc.
+
+    '
+  contact:
+    name: Podio Developer Documentation
+    url: https://developers.podio.com/doc
+servers:
+- url: https://api.podio.com
+  description: Podio production API
+security:
+- oauth2Authorization: []
+- oauth2Token: []
+tags:
+- name: Tasks
+  description: Work tasks.
+paths:
+  /task/:
+    post:
+      tags:
+      - Tasks
+      operationId: createTask
+      summary: Create a task
+      description: Creates a new task, optionally attached to a reference object.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskCreate'
+      responses:
+        '200':
+          description: Created task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+components:
+  schemas:
+    Task:
+      type: object
+      properties:
+        task_id:
+          type: integer
+          format: int64
+        text:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+          - active
+          - completed
+        due_date:
+          type: string
+          format: date
+        created_on:
+          type: string
+          format: date-time
+        link:
+          type: string
+          format: uri
+    TaskCreate:
+      type: object
+      required:
+      - text
+      properties:
+        text:
+          type: string
+        description:
+          type: string
+        due_date:
+          type: string
+          format: date
+        due_time:
+          type: string
+        responsible:
+          oneOf:
+          - type: integer
+          - type: object
+            additionalProperties: true
+        private:
+          type: boolean
+        ref_type:
+          type: string
+          enum:
+          - item
+          - app
+          - space
+        ref_id:
+          type: integer
+          format: int64
+  securitySchemes:
+    oauth2Authorization:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://podio.com/oauth/authorize
+          tokenUrl: https://api.podio.com/oauth/token/v2
+          scopes: {}
+    oauth2Token:
+      type: http
+      scheme: bearer
+      description: 'Podio also accepts bearer-style tokens via `Authorization: OAuth2 <access_token>`.
+
+        '

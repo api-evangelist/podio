@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: Podio Applications Hooks API
+  version: '1.0'
+  description: 'Podio is a work management and collaboration platform. The Podio API
+
+    provides programmatic access to apps, items, tasks, webhooks, and
+
+    related resources. Authentication is OAuth 2.0; pass the access
+
+    token in the `Authorization: OAuth2 <access_token>` header on API
+
+    requests. This specification captures a representative subset of
+
+    endpoints from https://developers.podio.com/doc.
+
+    '
+  contact:
+    name: Podio Developer Documentation
+    url: https://developers.podio.com/doc
+servers:
+- url: https://api.podio.com
+  description: Podio production API
+security:
+- oauth2Authorization: []
+- oauth2Token: []
+tags:
+- name: Hooks
+  description: Webhooks.
+paths:
+  /hook/{ref_type}/{ref_id}/:
+    parameters:
+    - in: path
+      name: ref_type
+      required: true
+      schema:
+        type: string
+        enum:
+        - app
+        - space
+        - item
+        - hook
+    - in: path
+      name: ref_id
+      required: true
+      schema:
+        type: integer
+        format: int64
+    post:
+      tags:
+      - Hooks
+      operationId: createHook
+      summary: Create a webhook
+      description: Create a new hook (webhook subscription) on the given reference object.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HookCreate'
+      responses:
+        '200':
+          description: Created hook id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  hook_id:
+                    type: integer
+                    format: int64
+components:
+  schemas:
+    HookCreate:
+      type: object
+      required:
+      - url
+      - type
+      properties:
+        url:
+          type: string
+          format: uri
+        type:
+          type: string
+          description: Event type, e.g. item.create, item.update, item.delete.
+  securitySchemes:
+    oauth2Authorization:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://podio.com/oauth/authorize
+          tokenUrl: https://api.podio.com/oauth/token/v2
+          scopes: {}
+    oauth2Token:
+      type: http
+      scheme: bearer
+      description: 'Podio also accepts bearer-style tokens via `Authorization: OAuth2 <access_token>`.
+
+        '
