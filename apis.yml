@@ -10,7 +10,19 @@ description: >-
   files, and webhooks, with official client libraries available for PHP, .NET,
   Ruby, Java, Python, Android, and Objective-C.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/podio.png
 tags:
   - Work Management
   - Collaboration
@@ -24,31 +36,78 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: podio:rest-api
-    name: Podio REST API
-    description: >-
-      REST API providing complete programmatic access to Podio apps, items,
-      workspaces, organizations, users, tasks, files, comments, and webhooks.
-      Authentication uses OAuth2 with several supported flows (server-side,
-      client-side, password, and app authentication). Rate limits are
-      adjustable upon request.
-    humanURL: https://developers.podio.com/doc
-    baseURL: https://api.podio.com
-    tags:
-      - Work Management
-      - Collaboration
-      - CRM
-      - Custom Apps
-    properties:
-      - type: Documentation
-        url: https://developers.podio.com/doc
-      - type: Authentication
-        url: https://developers.podio.com/authentication
-      - type: API Index
-        url: https://developers.podio.com/index
-      - type: Client Libraries
-        url: https://developers.podio.com/clients
-
+- aid: podio:rest-api
+  name: Podio REST API
+  description: >-
+    REST API providing complete programmatic access to Podio apps, items, workspaces, organizations, users,
+    tasks, files, comments, and webhooks. Authentication uses OAuth2 with several supported flows (server-side,
+    client-side, password, and app authentication). Rate limits are adjustable upon request.
+  humanURL: https://developers.podio.com/doc
+  baseURL: https://api.podio.com
+  tags:
+  - Work Management
+  - Collaboration
+  - CRM
+  - Custom Apps
+  properties:
+  - type: Documentation
+    url: https://developers.podio.com/doc
+  - type: Authentication
+    url: https://developers.podio.com/authentication
+  - type: API Index
+    url: https://developers.podio.com/index
+  - type: Client Libraries
+    url: https://developers.podio.com/clients
+- aid: podio:podio-applications-api
+  name: Podio Applications API
+  description: Podio application definitions.
+  humanURL: https://developers.podio.com/doc
+  baseURL: https://api.podio.com
+  tags:
+  - Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/podio-applications-api-openapi.yml
+- aid: podio:podio-hooks-api
+  name: Podio Hooks API
+  description: Webhooks.
+  humanURL: https://developers.podio.com/doc
+  baseURL: https://api.podio.com
+  tags:
+  - Hooks
+  properties:
+  - type: OpenAPI
+    url: openapi/podio-hooks-api-openapi.yml
+- aid: podio:podio-items-api
+  name: Podio Items API
+  description: Items (records) inside Podio applications.
+  humanURL: https://developers.podio.com/doc
+  baseURL: https://api.podio.com
+  tags:
+  - Items
+  properties:
+  - type: OpenAPI
+    url: openapi/podio-items-api-openapi.yml
+- aid: podio:podio-oauth-api
+  name: Podio OAuth API
+  description: OAuth 2.0 authorization endpoints.
+  humanURL: https://developers.podio.com/doc
+  baseURL: https://api.podio.com
+  tags:
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/podio-oauth-api-openapi.yml
+- aid: podio:podio-tasks-api
+  name: Podio Tasks API
+  description: Work tasks.
+  humanURL: https://developers.podio.com/doc
+  baseURL: https://api.podio.com
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/podio-tasks-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/podio-agentic-access.yml
