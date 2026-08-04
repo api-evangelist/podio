@@ -1,0 +1,394 @@
+openapi: 3.1.0
+info:
+  title: Podio API
+  version: '1.0'
+  description: |
+    Podio is a work management and collaboration platform. The Podio API
+    provides programmatic access to apps, items, tasks, webhooks, and
+    related resources. Authentication is OAuth 2.0; pass the access
+    token in the `Authorization: OAuth2 <access_token>` header on API
+    requests. This specification captures a representative subset of
+    endpoints from https://developers.podio.com/doc.
+  contact:
+    name: Podio Developer Documentation
+    url: https://developers.podio.com/doc
+servers:
+  - url: https://api.podio.com
+    description: Podio production API
+security:
+  - oauth2Authorization: []
+  - oauth2Token: []
+tags:
+  - name: OAuth
+    description: OAuth 2.0 authorization endpoints.
+  - name: Applications
+    description: Podio application definitions.
+  - name: Items
+    description: Items (records) inside Podio applications.
+  - name: Tasks
+    description: Work tasks.
+  - name: Hooks
+    description: Webhooks.
+paths:
+  /oauth/token/v2:
+    post:
+      tags: [OAuth]
+      operationId: getAccessToken
+      summary: Exchange credentials for an access token
+      description: |
+        Podio's OAuth 2.0 token endpoint. Supports `authorization_code`,
+        `refresh_token`, `password`, and `app` grants.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [grant_type, client_id, client_secret]
+              properties:
+                grant_type:
+                  type: string
+                  enum: [authorization_code, refresh_token, password, app]
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                code:
+                  type: string
+                redirect_uri:
+                  type: string
+                  format: uri
+                refresh_token:
+                  type: string
+                username:
+                  type: string
+                password:
+                  type: string
+                app_id:
+                  type: string
+                app_token:
+                  type: string
+      responses:
+        '200':
+          description: Token issued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+  /app/{app_id}:
+    parameters:
+      - $ref: '#/components/parameters/AppId'
+    get:
+      tags: [Applications]
+      operationId: getApp
+      summary: Get app
+      description: Retrieve the definition (configuration and fields) of a Podio application.
+      responses:
+        '200':
+          description: Application definition
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+  /item/app/{app_id}/:
+    parameters:
+      - $ref: '#/components/parameters/AppId'
+    post:
+      tags: [Items]
+      operationId: addNewItem
+      summary: Add a new item
+      description: Create a new item in the given app.
+      parameters:
+        - in: query
+          name: hook
+          schema:
+            type: boolean
+            default: true
+          description: Whether to execute hooks on change.
+        - in: query
+          name: silent
+          schema:
+            type: boolean
+            default: false
+          description: Whether to suppress stream bumping and notifications.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCreate'
+      responses:
+        '200':
+          description: Created item id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemCreated'
+  /item/{item_id}:
+    parameters:
+      - $ref: '#/components/parameters/ItemId'
+    get:
+      tags: [Items]
+      operationId: getItem
+      summary: Get an item
+      description: Returns the item with the specified id.
+      responses:
+        '200':
+          description: Item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+  /task/:
+    post:
+      tags: [Tasks]
+      operationId: createTask
+      summary: Create a task
+      description: Creates a new task, optionally attached to a reference object.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskCreate'
+      responses:
+        '200':
+          description: Created task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+  /hook/{ref_type}/{ref_id}/:
+    parameters:
+      - in: path
+        name: ref_type
+        required: true
+        schema:
+          type: string
+          enum: [app, space, item, hook]
+      - in: path
+        name: ref_id
+        required: true
+        schema:
+          type: integer
+          format: int64
+    post:
+      tags: [Hooks]
+      operationId: createHook
+      summary: Create a webhook
+      description: Create a new hook (webhook subscription) on the given reference object.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HookCreate'
+      responses:
+        '200':
+          description: Created hook id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  hook_id:
+                    type: integer
+                    format: int64
+components:
+  securitySchemes:
+    oauth2Authorization:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://podio.com/oauth/authorize
+          tokenUrl: https://api.podio.com/oauth/token/v2
+          scopes: {}
+    oauth2Token:
+      type: http
+      scheme: bearer
+      description: |
+        Podio also accepts bearer-style tokens via `Authorization: OAuth2 <access_token>`.
+  parameters:
+    AppId:
+      in: path
+      name: app_id
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: Podio application id.
+    ItemId:
+      in: path
+      name: item_id
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: Podio item id.
+  schemas:
+    AccessToken:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+        expires_in:
+          type: integer
+        refresh_token:
+          type: string
+        scope:
+          type: string
+        ref:
+          type: object
+          additionalProperties: true
+    Application:
+      type: object
+      properties:
+        app_id:
+          type: integer
+          format: int64
+        url_label:
+          type: string
+        config:
+          type: object
+          additionalProperties: true
+        fields:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        status:
+          type: string
+        current_revision:
+          type: integer
+        space_id:
+          type: integer
+          format: int64
+    ItemCreate:
+      type: object
+      properties:
+        external_id:
+          type: string
+        fields:
+          type: object
+          additionalProperties: true
+        file_ids:
+          type: array
+          items:
+            type: integer
+        tags:
+          type: array
+          items:
+            type: string
+        reminder:
+          type: object
+          properties:
+            remind_delta:
+              type: integer
+        recurrence:
+          type: object
+          additionalProperties: true
+    ItemCreated:
+      type: object
+      properties:
+        item_id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        revision:
+          type: integer
+        link:
+          type: string
+          format: uri
+    Item:
+      type: object
+      properties:
+        item_id:
+          type: integer
+          format: int64
+        external_id:
+          type: string
+        app:
+          type: object
+          additionalProperties: true
+        fields:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        created_on:
+          type: string
+          format: date-time
+        created_by:
+          type: object
+          additionalProperties: true
+        revision:
+          type: integer
+        tags:
+          type: array
+          items:
+            type: string
+        link:
+          type: string
+          format: uri
+    TaskCreate:
+      type: object
+      required: [text]
+      properties:
+        text:
+          type: string
+        description:
+          type: string
+        due_date:
+          type: string
+          format: date
+        due_time:
+          type: string
+        responsible:
+          oneOf:
+            - type: integer
+            - type: object
+              additionalProperties: true
+        private:
+          type: boolean
+        ref_type:
+          type: string
+          enum: [item, app, space]
+        ref_id:
+          type: integer
+          format: int64
+    Task:
+      type: object
+      properties:
+        task_id:
+          type: integer
+          format: int64
+        text:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum: [active, completed]
+        due_date:
+          type: string
+          format: date
+        created_on:
+          type: string
+          format: date-time
+        link:
+          type: string
+          format: uri
+    HookCreate:
+      type: object
+      required: [url, type]
+      properties:
+        url:
+          type: string
+          format: uri
+        type:
+          type: string
+          description: 'Event type, e.g. item.create, item.update, item.delete.'

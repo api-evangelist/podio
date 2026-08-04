@@ -1,0 +1,22 @@
+{
+  "provider": "podio",
+  "sources": [
+    "podio-applications-api-openapi.yml",
+    "podio-hooks-api-openapi.yml",
+    "podio-items-api-openapi.yml",
+    "podio-oauth-api-openapi.yml",
+    "podio-tasks-api-openapi.yml"
+  ],
+  "outputs": [
+    "podio-applications-api-openapi.yml",
+    "podio-hooks-api-openapi.yml",
+    "podio-items-api-openapi.yml",
+    "podio-oauth-api-openapi.yml",
+    "podio-tasks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
