@@ -1,0 +1,145 @@
+{
+  "item": [
+    {
+      "id": "b8b7c20f-dfae-4c60-b999-3c797557b95f",
+      "name": "Applications",
+      "description": {
+        "content": "Podio application definitions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a72a961a-f5fa-4d7c-b452-844d03bfbe07",
+          "name": "Get app",
+          "request": {
+            "name": "Get app",
+            "description": {
+              "content": "Retrieve the definition (configuration and fields) of a Podio application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                ":app_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "app_id",
+                  "description": "(Required) Podio application id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8601b103-a810-4fad-8142-6d43b667bc28",
+              "name": "Application definition",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    ":app_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "app_id",
+                      "description": "(Required) Podio application id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"app_id\": 1442,\n  \"url_label\": \"string\",\n  \"config\": {\n    \"key_0\": \"string\",\n    \"key_1\": 136.01751155576048\n  },\n  \"fields\": [\n    {\n      \"key_0\": 5984,\n      \"key_1\": true\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": \"string\",\n      \"key_3\": 6759.802273656407\n    }\n  ],\n  \"status\": \"string\",\n  \"current_revision\": 8621,\n  \"space_id\": 9296\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podio.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.podio.com/oauth/token/v2"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://podio.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1ff201e9-0db1-4829-86b0-a5216da81342",
+    "name": "Podio Applications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Podio is a work management and collaboration platform. The Podio API\nprovides programmatic access to apps, items, tasks, webhooks, and\nrelated resources. Authentication is OAuth 2.0; pass the access\ntoken in the `Authorization: OAuth2 <access_token>` header on API\nrequests. This specification captures a representative subset of\nendpoints from https://developers.podio.com/doc.\n\n\nContact Support:\n Name: Podio Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

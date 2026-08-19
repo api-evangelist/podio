@@ -1,0 +1,184 @@
+{
+  "item": [
+    {
+      "id": "de3c4c7a-b9b5-4c3f-ba50-03c1ae54aba4",
+      "name": "Hooks",
+      "description": {
+        "content": "Webhooks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "747ae400-3817-430b-95b3-267645ed8dd7",
+          "name": "Create a webhook",
+          "request": {
+            "name": "Create a webhook",
+            "description": {
+              "content": "Create a new hook (webhook subscription) on the given reference object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hook",
+                ":ref_type",
+                ":ref_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ref_type",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "ref_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<uri>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d6026cc-92a9-4349-97c1-1b0ad9b3c336",
+              "name": "Created hook id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hook",
+                    ":ref_type",
+                    ":ref_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ref_type",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "ref_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hook_id\": 3923\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podio.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.podio.com/oauth/token/v2"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://podio.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6854f750-35dd-4f9b-acd3-9d394a3ca748",
+    "name": "Podio Applications Hooks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Podio is a work management and collaboration platform. The Podio API\nprovides programmatic access to apps, items, tasks, webhooks, and\nrelated resources. Authentication is OAuth 2.0; pass the access\ntoken in the `Authorization: OAuth2 <access_token>` header on API\nrequests. This specification captures a representative subset of\nendpoints from https://developers.podio.com/doc.\n\n\nContact Support:\n Name: Podio Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

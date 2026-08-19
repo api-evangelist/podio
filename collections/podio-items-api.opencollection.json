@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Podio Applications Items API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://podio.com/oauth/authorize",
+      "accessTokenUrl": "https://api.podio.com/oauth/token/v2",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a new item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.podio.com/item/app/:app_id/",
+            "params": [
+              {
+                "name": "app_id",
+                "value": "",
+                "type": "path",
+                "description": "Podio application id."
+              },
+              {
+                "name": "hook",
+                "value": "",
+                "type": "query",
+                "description": "Whether to execute hooks on change."
+              },
+              {
+                "name": "silent",
+                "value": "",
+                "type": "query",
+                "description": "Whether to suppress stream bumping and notifications."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new item in the given app."
+        },
+        {
+          "info": {
+            "name": "Get an item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podio.com/item/:item_id",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Podio item id."
+              }
+            ]
+          },
+          "docs": "Returns the item with the specified id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

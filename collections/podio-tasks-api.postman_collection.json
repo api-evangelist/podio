@@ -1,0 +1,150 @@
+{
+  "item": [
+    {
+      "id": "98d7357f-1ef7-43f1-8e83-c9b868073e0d",
+      "name": "Tasks",
+      "description": {
+        "content": "Work tasks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f37a04fc-53f0-480c-823f-11a73e7d6569",
+          "name": "Create a task",
+          "request": {
+            "name": "Create a task",
+            "description": {
+              "content": "Creates a new task, optionally attached to a reference object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "task",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"<string>\",\n  \"description\": \"<string>\",\n  \"due_date\": \"<date>\",\n  \"due_time\": \"<string>\",\n  \"responsible\": \"<integer>\",\n  \"private\": \"<boolean>\",\n  \"ref_type\": \"<string>\",\n  \"ref_id\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4045fd39-5568-4fc7-b694-5a01d5129f0e",
+              "name": "Created task",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "task",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"<string>\",\n  \"description\": \"<string>\",\n  \"due_date\": \"<date>\",\n  \"due_time\": \"<string>\",\n  \"responsible\": \"<integer>\",\n  \"private\": \"<boolean>\",\n  \"ref_type\": \"<string>\",\n  \"ref_id\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"task_id\": 9443,\n  \"text\": \"string\",\n  \"description\": \"string\",\n  \"status\": \"active\",\n  \"due_date\": \"1997-09-18\",\n  \"created_on\": \"1977-05-26T00:29:00.731Z\",\n  \"link\": \"http://sicMtYzEiXkii.gtrqiA+iR6HyFo7VJMNsNkTA5-OZ\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podio.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.podio.com/oauth/token/v2"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://podio.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5be63505-ff3b-4a82-ab70-566b2e401dc5",
+    "name": "Podio Applications Tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Podio is a work management and collaboration platform. The Podio API\nprovides programmatic access to apps, items, tasks, webhooks, and\nrelated resources. Authentication is OAuth 2.0; pass the access\ntoken in the `Authorization: OAuth2 <access_token>` header on API\nrequests. This specification captures a representative subset of\nendpoints from https://developers.podio.com/doc.\n\n\nContact Support:\n Name: Podio Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}
