@@ -28,6 +28,13 @@ tags:
   - Collaboration
   - Project Management
   - CRM
+  - Workflows
+  - Custom Apps
+tags_raw:
+  - Work Management
+  - Collaboration
+  - Project Management
+  - CRM
   - Workflow
   - Custom Apps
 url: >-
@@ -64,6 +71,8 @@ apis:
   humanURL: https://developers.podio.com/doc
   baseURL: https://api.podio.com
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -84,6 +93,8 @@ apis:
   humanURL: https://developers.podio.com/doc
   baseURL: https://api.podio.com
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
@@ -94,6 +105,8 @@ apis:
   humanURL: https://developers.podio.com/doc
   baseURL: https://api.podio.com
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
@@ -104,6 +117,8 @@ apis:
   humanURL: https://developers.podio.com/doc
   baseURL: https://api.podio.com
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
