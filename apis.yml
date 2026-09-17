@@ -111,18 +111,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/podio-items-api-openapi.yml
-- aid: podio:podio-oauth-api
-  name: Podio OAuth API
-  description: OAuth 2.0 authorization endpoints.
-  humanURL: https://developers.podio.com/doc
-  baseURL: https://api.podio.com
-  tags:
-  - Authentication
-  tags_raw:
-  - OAuth
-  properties:
-  - type: OpenAPI
-    url: openapi/podio-oauth-api-openapi.yml
 - aid: podio:podio-tasks-api
   name: Podio Tasks API
   description: Work tasks.
@@ -135,6 +123,16 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/podio-tasks-api-openapi.yml
+- aid: podio:podio-oauth-api
+  name: Podio O Auth API
+  description: OAuth 2.0 authorization endpoints.
+  humanURL: https://developers.podio.com/doc
+  baseURL: https://api.podio.com
+  tags:
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/podio-oauth-api-openapi.yml
 common:
   - type: ParentCompany
     url: https://apis.io/providers/citrix/
