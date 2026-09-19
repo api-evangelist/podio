@@ -129,6 +129,8 @@ apis:
   humanURL: https://developers.podio.com/doc
   baseURL: https://api.podio.com
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
