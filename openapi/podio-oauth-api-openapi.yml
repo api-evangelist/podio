@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Podio Applications OAuth API
+  title: Podio O Auth API
   version: '1.0'
   description: 'Podio is a work management and collaboration platform. The Podio API
 
@@ -8,13 +8,11 @@ info:
 
     related resources. Authentication is OAuth 2.0; pass the access
 
-    token in the `Authorization: OAuth2 <access_token>` header on API
+    token in the `Authorization: OAuth2 ` header on API
 
     requests. This specification captures a representative subset of
 
-    endpoints from https://developers.podio.com/doc.
-
-    '
+    endpoints from https://developers.podio.com/doc.'
   contact:
     name: Podio Developer Documentation
     url: https://developers.podio.com/doc
@@ -36,9 +34,7 @@ paths:
       summary: Exchange credentials for an access token
       description: 'Podio''s OAuth 2.0 token endpoint. Supports `authorization_code`,
 
-        `refresh_token`, `password`, and `app` grants.
-
-        '
+        `refresh_token`, `password`, and `app` grants.'
       security: []
       requestBody:
         required: true
