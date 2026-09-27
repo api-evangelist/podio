@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Podio O Auth API
+  title: Podio OAuth API
   version: '1.0'
   description: 'Podio is a work management and collaboration platform. The Podio API
 
