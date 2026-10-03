@@ -96,6 +96,30 @@ components:
         format: int64
       description: Podio item id.
   schemas:
+    ItemCreate:
+      type: object
+      properties:
+        external_id:
+          type: string
+        fields:
+          type: object
+          additionalProperties: true
+        file_ids:
+          type: array
+          items:
+            type: integer
+        tags:
+          type: array
+          items:
+            type: string
+        reminder:
+          type: object
+          properties:
+            remind_delta:
+              type: integer
+        recurrence:
+          type: object
+          additionalProperties: true
     Item:
       type: object
       properties:
@@ -140,30 +164,6 @@ components:
         link:
           type: string
           format: uri
-    ItemCreate:
-      type: object
-      properties:
-        external_id:
-          type: string
-        fields:
-          type: object
-          additionalProperties: true
-        file_ids:
-          type: array
-          items:
-            type: integer
-        tags:
-          type: array
-          items:
-            type: string
-        reminder:
-          type: object
-          properties:
-            remind_delta:
-              type: integer
-        recurrence:
-          type: object
-          additionalProperties: true
   securitySchemes:
     oauth2Authorization:
       type: oauth2

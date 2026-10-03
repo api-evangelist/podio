@@ -43,15 +43,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Application'
 components:
-  parameters:
-    AppId:
-      in: path
-      name: app_id
-      required: true
-      schema:
-        type: integer
-        format: int64
-      description: Podio application id.
   schemas:
     Application:
       type: object
@@ -76,6 +67,15 @@ components:
         space_id:
           type: integer
           format: int64
+  parameters:
+    AppId:
+      in: path
+      name: app_id
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: Podio application id.
   securitySchemes:
     oauth2Authorization:
       type: oauth2
