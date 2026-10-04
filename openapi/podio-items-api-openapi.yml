@@ -79,14 +79,6 @@ paths:
                 $ref: '#/components/schemas/Item'
 components:
   parameters:
-    AppId:
-      in: path
-      name: app_id
-      required: true
-      schema:
-        type: integer
-        format: int64
-      description: Podio application id.
     ItemId:
       in: path
       name: item_id
@@ -95,31 +87,28 @@ components:
         type: integer
         format: int64
       description: Podio item id.
+    AppId:
+      in: path
+      name: app_id
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: Podio application id.
   schemas:
-    ItemCreate:
+    ItemCreated:
       type: object
       properties:
-        external_id:
+        item_id:
+          type: integer
+          format: int64
+        title:
           type: string
-        fields:
-          type: object
-          additionalProperties: true
-        file_ids:
-          type: array
-          items:
-            type: integer
-        tags:
-          type: array
-          items:
-            type: string
-        reminder:
-          type: object
-          properties:
-            remind_delta:
-              type: integer
-        recurrence:
-          type: object
-          additionalProperties: true
+        revision:
+          type: integer
+        link:
+          type: string
+          format: uri
     Item:
       type: object
       properties:
@@ -151,19 +140,30 @@ components:
         link:
           type: string
           format: uri
-    ItemCreated:
+    ItemCreate:
       type: object
       properties:
-        item_id:
-          type: integer
-          format: int64
-        title:
+        external_id:
           type: string
-        revision:
-          type: integer
-        link:
-          type: string
-          format: uri
+        fields:
+          type: object
+          additionalProperties: true
+        file_ids:
+          type: array
+          items:
+            type: integer
+        tags:
+          type: array
+          items:
+            type: string
+        reminder:
+          type: object
+          properties:
+            remind_delta:
+              type: integer
+        recurrence:
+          type: object
+          additionalProperties: true
   securitySchemes:
     oauth2Authorization:
       type: oauth2
