@@ -198,7 +198,6 @@
   arazzo: null
 - slug: podio-linkedin-ads
   label: LinkedIn Ads
-  partner: linkedin-ads
   partner_name: LinkedIn Ads
   category: Ads & Conversion
   type: marketplace
@@ -206,7 +205,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/podio/integrations/linkedin-ads
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: podio-oncehub
   label: OnceHub
@@ -351,7 +350,6 @@
   arazzo: null
 - slug: podio-microsoft-excel
   label: Microsoft Excel
-  partner: microsoft-excel
   partner_name: Microsoft Excel
   category: Microsoft
   type: marketplace
@@ -359,7 +357,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/podio/integrations/excel
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: podio-formstack-documents
   label: Formstack Documents
@@ -371,4 +369,55 @@
   evidence: https://zapier.com/apps/podio/integrations/formstack-documents
   source: edge
   status: pending-partner-spec
+  arazzo: null
+- slug: podio-zapier
+  label: Zapier
+  partner: zapier
+  partner_name: Zapier
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  evidence: https://zapier.com/apps/podio/integrations
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: Podio
+    matched_domain: podio.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: podio
+    beta: false
+    builder: unknown (not in the directory record)
+  status: pending-generation
+  arazzo: null
+- slug: podio-pipedream
+  label: Pipedream
+  partner: pipedream
+  partner_name: Pipedream
+  type: marketplace
+  marketplace: pipedream-components
+  channel: open-source-node
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/podio
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Pipedream components (PipedreamHQ/pipedream components/)
+    spec_file: null
+    role: ipaas-connector:pipedream
+    registered_name: podio
+    matched_domain: podio.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: podio
+    actions: true
+    sources: true
+    builder: Pipedream repo (component)
+  status: pending-generation
   arazzo: null
