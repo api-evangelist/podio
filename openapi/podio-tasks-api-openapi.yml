@@ -48,6 +48,30 @@ paths:
                 $ref: '#/components/schemas/Task'
 components:
   schemas:
+    Task:
+      type: object
+      properties:
+        task_id:
+          type: integer
+          format: int64
+        text:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+          - active
+          - completed
+        due_date:
+          type: string
+          format: date
+        created_on:
+          type: string
+          format: date-time
+        link:
+          type: string
+          format: uri
     TaskCreate:
       type: object
       required:
@@ -78,30 +102,6 @@ components:
         ref_id:
           type: integer
           format: int64
-    Task:
-      type: object
-      properties:
-        task_id:
-          type: integer
-          format: int64
-        text:
-          type: string
-        description:
-          type: string
-        status:
-          type: string
-          enum:
-          - active
-          - completed
-        due_date:
-          type: string
-          format: date
-        created_on:
-          type: string
-          format: date-time
-        link:
-          type: string
-          format: uri
   securitySchemes:
     oauth2Authorization:
       type: oauth2
