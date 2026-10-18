@@ -445,5 +445,5 @@
     - connectors/applications/podio
     vendor_link: https://www.podio.com/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
