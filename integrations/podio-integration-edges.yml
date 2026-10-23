@@ -12,6 +12,9 @@ checked:
 - https://n8n.io/integrations/podio/
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/podio/integrations
+- https://ifttt.com/explore/services
+- https://ifttt.com/podio
+- https://ifttt.com/sitemap_services.xml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -491,6 +494,31 @@ edges:
   direction: third-party
   category: Forms & Surveys
   partner_url: http://www.jotform.com/
+- partner_name: IFTTT
+  partner: ifttt
+  partner_match: aggregator
+  type: marketplace
+  marketplace: ifttt-services
+  channel: ipaas-listing
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://ifttt.com/podio
+  category: null
+  contract_reference:
+    register: IFTTT service directory (ifttt.com/explore/services; ifttt.com/<service>)
+    spec_file: null
+    role: ipaas-connector:ifttt
+    registered_name: Podio
+    matched_domain: podio.com
+    matched_by: domain
+    app_slug: podio
+    ifttt_category: Business tools
+    builder: unknown (the service page does not say who built it)
+    detected_by: sweep-ifttt-services.py
+    detected: '2026-10-23'
+    signal_note: one edge per (provider, platform); triggers, actions and applet counts are context, never read
+  detected_by: sweep-ifttt-services.py
+  first_seen: '2026-10-23'
 templates:
 - title: Create Mailchimp Subscribers via Podio
   url: https://zapier.com/apps/mailchimp/integrations/podio/145/create-mailchimp-subscribers-via-podio
