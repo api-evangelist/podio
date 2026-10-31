@@ -1,4 +1,4 @@
-# Podio (podio)
+# Podio
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,64 +66,123 @@
 
 Podio is a flexible work management and collaboration platform (originally acquired by Citrix in 2012, and now part of Progress Software following the October 2024 acquisition of ShareFile and Podio) that lets teams build custom apps, workspaces, and workflows for project management, CRM, and internal operations. The Podio API offers a complete programmable interface to all Podio functionality including apps, items, tasks, workspaces, users, files, and webhooks, with official client libraries available for PHP, .NET, Ruby, Java, Python, Android, and Objective-C.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/podio/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/podio/refs/heads/main/apis.yml)
+**Areas:** Work Management · Collaboration · Project Management · CRM · Workflows · Custom Apps
 
-## Scope
+## Podio on APIs.io
 
-- **Type:** Index
+Everything profiled for Podio is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/podio/](https://apis.io/providers/podio/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Work Management
-- Collaboration
-- Project Management
-- CRM
-- Workflow
-- Custom Apps
+- [Podio REST API](https://apis.io/apis/podio/rest-api/) — REST API providing complete programmatic access to Podio apps, items, workspaces, organizations, users, tasks, files, comments, and webhooks. Authentication…
+- [Podio Applications API](https://apis.io/apis/podio/podio-applications-api/) — Podio application definitions.
+- [Podio Hooks API](https://apis.io/apis/podio/podio-hooks-api/) — Webhooks.
+- [Podio Items API](https://apis.io/apis/podio/podio-items-api/) — Items (records) inside Podio applications.
+- [Podio Tasks API](https://apis.io/apis/podio/podio-tasks-api/) — Work tasks.
+- [Podio O Auth API](https://apis.io/apis/podio/podio-oauth-api/) — OAuth 2.0 authorization endpoints.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Podio REST API
+Model Context Protocol servers that expose the API to agents.
 
-REST API providing complete programmatic access to Podio apps, items, workspaces, organizations, users, tasks, files, comments, and webhooks. Authentication uses OAuth2 with several supported flows (server-side, client-side, password, and app authentication). Rate limits are adjustable upon request.
+- [podio](https://apis.io/servers/podio/podio/)
 
-- **Human URL:** [https://developers.podio.com/doc](https://developers.podio.com/doc)
-- **Base URL:** `https://api.podio.com`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Work Management
-- Collaboration
-- CRM
-- Custom Apps
+- [Podio Agentic Access](https://apis.io/agentic-access/podio/podio-agentic-access/)
 
-#### Properties
+#### Collections (6)
 
-- [Documentation](https://developers.podio.com/doc)
-- [Authentication](https://developers.podio.com/authentication)
-- [A P I  Index](https://developers.podio.com/index)
-- [Client  Libraries](https://developers.podio.com/clients)
-- [Postman Collection](collections/podio.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/podio.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [Podio API](https://apis.io/collections/podio/open-podio/)
+- [Podio Applications API](https://apis.io/collections/podio/open-podio-applications-api/)
+- [Podio Applications Hooks API](https://apis.io/collections/podio/open-podio-hooks-api/)
+- [Podio Applications Items API](https://apis.io/collections/podio/open-podio-items-api/)
+- [Podio Applications OAuth API](https://apis.io/collections/podio/open-podio-oauth-api/)
+- [Podio Applications Tasks API](https://apis.io/collections/podio/open-podio-tasks-api/)
 
-- [LinkedIn](https://www.linkedin.com/showcase/citrix-work-collaboration-solutions)
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Podio Authentication](https://apis.io/security/podio/podio-authentication/)
+- [Podio Domain Security](https://apis.io/security/podio/podio-domain-security/)
+- [Podio Vulnerability Disclosure](https://apis.io/security/podio/podio-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Podio Scopes](https://apis.io/scopes/podio/podio-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.podio.com)
 - [Documentation](https://developers.podio.com)
-- [Help  Center](https://help.podio.com)
 - [Pricing](https://www.podio.com/site/en/premium)
-- [Sign Up](https://podio.com/signup)
-- [Status Page](https://status.podio.com)
-- [GitHub Organization](https://github.com/podio)
-- [Progress  Podio  Docs](https://docs.sharefile.com/en-us/podio.html)
+- [GitHub](https://github.com/podio)
+- [Status](https://status.podio.com)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 36.1** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 46.5 |
+| Contract governance | 0.0 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 26.2 |
+| Access clarity | 23.7 |
+
+**Agent readiness 43.3** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 27.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/podio/](https://apis.io/providers/podio/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Podio: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/podio/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
